@@ -7,7 +7,30 @@
         </div>
     </x-slot>
 
-    <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-        {{ __("You're logged in!")  }}
-    </div>
+        <div class="grid sm:grid-col-1 grid-cols-4 gap-4">
+            <div>
+                <x-statsCard>
+                    <h3 class="text-xl font-semibold text-green-600 text-right uppercase">{{ 'INCOME' }}</h3>
+                    <h1 class="text-4xl font-bold text-right">Rs. {{ 20000 }}</h1>
+                </x-statsCard>
+            </div>
+            <div>
+                <x-statsCard>
+                    <h3 class="text-xl font-semibold text-red-600 text-right uppercase">{{ 'EXPENCES' }}</h3>
+                    <h1 class="text-4xl font-bold text-right">Rs. {{ 10000 }}</h1>
+                </x-statsCard>
+            </div>
+            <div>
+                <x-statsCard>
+                    <h3 class="text-xl font-semibold text-blue-600 text-right uppercase">{{ 'Onging Work' }}</h3>
+                    <h1 class="text-4xl font-bold text-right">{{ 2 }}</h1>
+                </x-statsCard>
+            </div>
+            <div>
+                <x-statsCard>
+                    <h3 class="text-xl font-semibold text-orange-600 text-right uppercase">{{ 'Competed Work' }}</h3>
+                    <h1 class="text-4xl font-bold text-right">{{ 10 }}</h1>
+                </x-statsCard>
+            </div>
+        </div>
 </x-app-layout>
