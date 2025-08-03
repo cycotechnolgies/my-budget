@@ -8,19 +8,12 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     */
+     */ 
     public function up(): void
     {
         Schema::create('worklogs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('title');
-            $table->string('client');
-            $table->date('start_date');
-            $table->date('end_date')->nullable();
-            $table->String('time_taken')->nullable();
-            $table->text('notes')->nullable();
-            $table->timestamps();    
+            $table->timestamps();
         });
     }
 
