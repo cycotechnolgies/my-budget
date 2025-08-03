@@ -61,8 +61,7 @@ document.addEventListener('alpine:init', () => {
             handleWindowResize() {
                 if (window.innerWidth <= 1024) {
                     this.isSidebarOpen = false
-                } else {
-                    this.isSidebarOpen = true
+                    this.isSidebarHovered = false
                 }
             },
             scrollingDown: false,
