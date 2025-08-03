@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <h2 class="text-xl font-semibold leading-tight">
+            <h2 class="text-3xl font-bold leading-tight">
                 {{ __('Dashboard') }}
             </h2>
         </div>
     </x-slot>
 
-        <div class="grid sm:grid-col-1 grid-cols-4 gap-4">
+        <div class="grid md:grid-col-4 xl:grid-cols-4 lg:grid-cols-4 grid-cols-1 gap-4">
             <div>
                 <x-statsCard>
                     <h3 class="text-xl font-semibold text-green-600 text-right uppercase">{{ 'INCOME' }}</h3>
