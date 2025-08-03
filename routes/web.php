@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\incomeController;
 
 // Auth routes
 require __DIR__ . '/auth.php';
@@ -18,14 +19,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     
     Route::view('/expences', 'expences')->name('expences');
 
-    Route::get('/income', function () {
-        $incomes = [
-            ['id' => 1, 'name' => 'Salary', 'amount' => 5000],
-            ['id' => 2, 'name' => 'Freelance', 'amount' => 1500],
-            ['id' => 3, 'name' => 'Investment', 'amount' => 2000],
-        ];
-        return view('income', ['incomes' => $incomes]);
-    })->name('income');
+    Route::get('/income', [incomeController::class, 'index'])->name('income');
 });
 
 // Profile routes
