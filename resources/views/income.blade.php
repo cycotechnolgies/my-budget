@@ -15,9 +15,15 @@
     <div class="grid grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
         @foreach ($incomes as $income)
             <x-card>
-                <div class="flex flex-col">
-                    <h3 class="text-lg font-semibold">{{ $income['name'] }}</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Amount: ${{ number_format($income['amount'], 2) }}</p>
+                <div class="grid grid-cols-4 gap-2 items-center">
+                    <div class="bg-red-700 text-white font-bold text-2xl rounded-full w-20 h-20 text-center content-center justify-items-center">
+                        {{ $income['id'] }}
+                    </div>
+                    <div class="col-span-3 space-y-2">
+                        <h3 class="text-lg font-semibold">{{ $income['title'] }}</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Amount: ${{ number_format($income['amount'], 2) }}</p>
+                        <p class="text-gray-500 dark:text-gray-300 text-sm">{{ $income['Rec_date'] }}</p>
+                    </div>
                 </div>
             </x-card>
         @endforeach
