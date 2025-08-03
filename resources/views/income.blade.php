@@ -11,9 +11,26 @@
         + New Income
         </x-button>
     </div>
-    <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-        {{ __("Nothing for now")  }}
+    
+    <div class="grid grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+        @foreach ($incomes as $income)
+            <x-card>
+                <div class="flex flex-col">
+                    <h3 class="text-lg font-semibold">{{ $income['name'] }}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Amount: ${{ number_format($income['amount'], 2) }}</p>
+                </div>
+            </x-card>
+        @endforeach
     </div>
+    @if (count($incomes) === 0)
+        <x-card>
+            <div class="flex flex-col items-center justify-center col-span-2">
+                <p class="text-gray-500">No income records found.</p>
+            </div>
+        </x-card>
+    @endif
+
+    <!-- modal -->
     <x-modal name="income-model">
         <div class="p-6">
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">

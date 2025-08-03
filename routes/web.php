@@ -11,11 +11,21 @@ Route::view('/', 'auth.login');
 
 // Authenticated routes
 Route::middleware(['auth', 'verified'])->group(function () {
+    
     Route::view('/dashboard', 'dashboard')->name('dashboard');
-    Route::view('/income', 'income')->name('income');
+
     Route::view('/worklog', 'worklog')->name('worklog');
+    
     Route::view('/expences', 'expences')->name('expences');
-    // Route::view('/budget', 'budget')->name('budget');
+
+    Route::get('/income', function () {
+        $incomes = [
+            ['id' => 1, 'name' => 'Salary', 'amount' => 5000],
+            ['id' => 2, 'name' => 'Freelance', 'amount' => 1500],
+            ['id' => 3, 'name' => 'Investment', 'amount' => 2000],
+        ];
+        return view('income', ['incomes' => $incomes]);
+    })->name('income');
 });
 
 // Profile routes
