@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'K UI') }}</title>
+    <title>{{ 'MY-BUDGET' }}</title>
 
     <!-- Fonts -->
     <link
@@ -38,8 +38,9 @@
             <div
                 class="flex flex-col min-h-screen"
                 :class="{
-                    'lg:ml-64': isSidebarOpen,
-                    'md:ml-16': !isSidebarOpen
+                    'lg:ml-64': isSidebarOpen || isSidebarHovered,
+                    'lg:ml-16': !isSidebarOpen && !isSidebarHovered,
+                    'md:ml-16': true
                 }"
                 style="transition-property: margin; transition-duration: 150ms;"
             >
