@@ -7,14 +7,14 @@
         </div>
     </x-slot>
     <div class="flex justify-end p-6">
-        <x-button x-data="" @click="$dispatch('open-modal', 'income-model')">
+        <x-button x-data="" @click="$dispatch('open-modal', 'new-income-modal')">
         + New Income
         </x-button>
     </div>
     
     <div class="grid grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
         @foreach ($incomes as $income)
-            <x-card>
+            <x-card :income="$income">
                 <div class="grid grid-cols-4 gap-2 items-center">
                     <div class="bg-red-700 text-white font-bold text-2xl rounded-full w-20 h-20 text-center content-center justify-items-center">
                         {{ $income['id'] }}
@@ -37,46 +37,40 @@
     @endif
 
     <!-- modal -->
-    <x-modal name="income-model">
-        <div class="p-6">
-            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                Add New Item
+    <x-modal name="new-income-modal" focusable>
+        <div class="p-6 space-y-6">
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+                Add New Income
             </h2>
 
-            <form method="POST" action="" class="mt-6">
+            <form method="POST" action="{{ route('income.create') }}">
                 @csrf
 
+                <!-- Reuse same input fields for new entry -->
                 <div>
-                    <x-form.label for="name" value="Name" />
-                    <x-form.input
-                        id="name"
-                        name="name"
-                        type="text"
-                        class="mt-1 block w-full"
-                        required
-                    />
-                    <x-form.error :messages="$errors->get('name')" class="mt-2" />
+                    <x-form.label for="title" value="Title" />
+                    <x-form.input id="title" name="title" type="text" class="block w-full mt-1" required />
                 </div>
 
-                <div class="mt-6">
-                    <x-form.label for="description" value="Description" />
-                    <x-form.input
-                        id="description"
-                        name="description"
-                        type="text"
-                        class="mt-1 block w-full"
-                    />
-                    <x-form.error :messages="$errors->get('description')" class="mt-2" />
+                <div>
+                    <x-form.label for="amount" value="Amount" />
+                    <x-form.input id="amount" name="amount" type="number" step="0.01" class="block w-full mt-1" required />
                 </div>
 
-                <div class="mt-6 flex justify-end">
-                    <x-button x-on:click="$dispatch('close')">
-                        Cancel
-                    </x-button>
+                <div>
+                    <x-form.label for="Rec_date" value="Received Date" />
+                    <x-form.input id="Rec_date" name="Rec_date" type="date" class="block w-full mt-1" required />
+                </div>
 
-                    <x-button class="ml-3">
-                        Save
-                    </x-button>
+                <div>
+                    <x-form.label for="notes" value="Description" />
+                    <textarea id="notes" name="notes" rows="4"
+                        class="block w-full mt-1 rounded-md border-gray-300 dark:bg-dark-eval-2 dark:text-white"></textarea>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4">
+                    <x-button type="button" x-on:click="$dispatch('close')">Cancel</x-button>
+                    <x-button type="submit" class="bg-green-600 hover:bg-green-700 text-white">Save</x-button>
                 </div>
             </form>
         </div>

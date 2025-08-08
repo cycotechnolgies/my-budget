@@ -21,18 +21,18 @@
         :isActive="request()->routeIs('worklog')"
     >
         <x-slot name="icon">
-            <x-icons.dashboard class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+            <x-icons.worklogs class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
 
     <!-- income -->
     <x-sidebar.link
         title="Income"
-        href="{{ route('income') }}"
-        :isActive="request()->routeIs('income')"
+        href="{{ route('income.index') }}"
+        :isActive="request()->routeIs('income.index')"
     >
         <x-slot name="icon">
-            <x-icons.dashboard class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+            <x-icons.income class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
 
@@ -43,7 +43,7 @@
         :isActive="request()->routeIs('expences')"
     >
         <x-slot name="icon">
-            <x-icons.dashboard class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+            <x-icons.expences class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
 

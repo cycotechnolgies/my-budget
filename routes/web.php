@@ -19,7 +19,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     
     Route::view('/expences', 'expences')->name('expences');
 
-    Route::get('/income', [incomeController::class, 'index'])->name('income');
+    Route::get('/income', [incomeController::class, 'index'])->name('income.index');
+    Route::get('/income/{id}', [incomeController::class, 'show'])->name('income.show');
+    Route::put('/income/{id}', [IncomeController::class, 'update'])->name('income.update');
+    Route::post('/income', [IncomeController::class, 'create'])->name('income.create');
 });
 
 // Profile routes
