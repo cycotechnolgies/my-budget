@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\incomeController;
 
 // Auth routes
 require __DIR__ . '/auth.php';
@@ -11,11 +12,17 @@ Route::view('/', 'auth.login');
 
 // Authenticated routes
 Route::middleware(['auth', 'verified'])->group(function () {
+    
     Route::view('/dashboard', 'dashboard')->name('dashboard');
-    Route::view('/income', 'income')->name('income');
+
     Route::view('/worklog', 'worklog')->name('worklog');
+    
     Route::view('/expences', 'expences')->name('expences');
-    // Route::view('/budget', 'budget')->name('budget');
+
+    Route::get('/income', [incomeController::class, 'index'])->name('income.index');
+    Route::get('/income/{id}', [incomeController::class, 'show'])->name('income.show');
+    Route::put('/income/{id}', [IncomeController::class, 'update'])->name('income.update');
+    Route::post('/income', [IncomeController::class, 'create'])->name('income.create');
 });
 
 // Profile routes
