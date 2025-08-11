@@ -9,7 +9,7 @@ class IncomeController extends Controller
 {
     public function index()
     {
-        $incomes = Incomes::orderBy('created_at', 'asc')->get();
+        $incomes = Incomes::orderBy('created_at', 'asc')->paginate(10);
 
         return view('income.index', [
             'incomes' => $incomes,

@@ -3,6 +3,8 @@
 @import "perfect-scrollbar/css/perfect-scrollbar.css";
 @import "tailwindcss/utilities";
 
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
 .dark .ps__rail-y,
 .dark .ps__rail-x {
     background-color: transparent !important;
