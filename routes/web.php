@@ -22,7 +22,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/income', [incomeController::class, 'index'])->name('income.index');
     Route::get('/income/{id}', [incomeController::class, 'show'])->name('income.show');
     Route::put('/income/{id}', [IncomeController::class, 'update'])->name('income.update');
-    Route::post('/income', [IncomeController::class, 'create'])->name('income.create');
+    Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
+    Route::delete('/income/{id}', [IncomeController::class, 'destroy'])->name('income.del');
+
 });
 
 // Profile routes

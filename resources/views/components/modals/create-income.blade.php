@@ -4,7 +4,7 @@
             Add New Income
         </h2>
 
-        <form method="POST" action="{{ route('income.create') }}">
+        <form method="POST" action="{{ route('income.store') }}">
             @csrf
 
             <!-- Title -->

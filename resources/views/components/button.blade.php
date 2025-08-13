@@ -35,6 +35,9 @@
         case 'black':
             $variantClasses = 'bg-black text-gray-300 hover:text-white hover:bg-gray-800 focus:ring-black dark:hover:bg-dark-eval-3';
         break;
+        case 'dim':
+            $variantClasses = 'border border-gray-800 text-gray-800 hover:text-white hover:bg-gray-800 focus:ring-black dark:border-gray-400 dark:text-white dark:hover:bg-dark-eval-3';
+        break;
         default:
             $variantClasses = 'bg-purple-500 text-white hover:bg-purple-600 focus:ring-purple-500';
     }
