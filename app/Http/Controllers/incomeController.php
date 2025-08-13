@@ -11,7 +11,9 @@ class IncomeController extends Controller
     {
         $incomes = Incomes::orderBy('created_at', 'asc')->paginate(5);
 
-        return view('income.index', compact('incomes'));
+        $totalIncome = Incomes::sum('amount');
+
+        return view('income.index', compact('incomes', 'totalIncome'));
     }
 
     public function create()

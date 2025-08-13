@@ -6,17 +6,15 @@
             </h2>
         </div>
     </x-slot>
-    <div class="flex justify-end p-6">
-        <x-button x-data="" @click="$dispatch('open-modal', 'new-income-modal')">
-        <x-icons.insert class="mr-4" /> &nbsp;New Income
+
+    <div class="flex justify-between gap-4 text-center my-4 flex-col md:flex-row">
+        <div class="bg-white border-l-4 border-green-600 shadow-md  rounded-md w-full md:w-3/4 flex justify-start items-center p-4">
+            <h3 class="text-xl font-semibold">Total Income: {{ number_format($totalIncome, 2) }}</h3>
+        </div>
+        <x-button class="w-full md:w-1/4 text-center flex flex-row justify-center items-center gap-2 h-12 md:h-auto" @click="$dispatch('open-modal', 'new-income-modal')">
+            <x-icons.insert /> &nbsp;<p>New Income</p>
         </x-button>
     </div>
-    
-    {{-- <div class="grid grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-        @foreach ($incomes as $income)
-            <x-cards.income :income="$income"/>
-        @endforeach
-    </div> --}}
     
     <x-table :paginator="$incomes">
         <x-slot name="header">
