@@ -17,7 +17,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::view('/worklog', 'worklog')->name('worklog');
     
-    Route::view('/expences', 'expences')->name('expences');
+    Route::get('/expences', [incomeController::class, 'index'])->name('expences.index');
+    Route::get('/expences/{id}', [incomeController::class, 'show'])->name('expences.show');
+    Route::put('/expences/{id}', [IncomeController::class, 'update'])->name('expences.update');
+    Route::post('/expences', [IncomeController::class, 'store'])->name('expences.store');
+    Route::delete('/expences/{id}', [IncomeController::class, 'destroy'])->name('expences.del');
 
     Route::get('/income', [incomeController::class, 'index'])->name('income.index');
     Route::get('/income/{id}', [incomeController::class, 'show'])->name('income.show');

@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class expenses extends Model
 {
-    /** @use HasFactory<\Database\Factories\ExpensesFactory> */
+    protected $fillable = [
+        'title',
+        'amount',
+        'Rec_date',
+        'notes',
+    ];
     use HasFactory;
 }

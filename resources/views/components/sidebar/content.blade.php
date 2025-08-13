@@ -39,8 +39,8 @@
     <!-- Expences -->
     <x-sidebar.link
         title="Expences"
-        href="{{ route('expences') }}"
-        :isActive="request()->routeIs('expences')"
+        href="{{ route('expences.index') }}"
+        :isActive="request()->routeIs('expences.index')"
     >
         <x-slot name="icon">
             <x-icons.expences class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
